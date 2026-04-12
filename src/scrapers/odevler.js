@@ -1,7 +1,7 @@
 const config = require('../config');
 module.exports = {
     id: 'odevler',
-    url: `https://${config.course}.eyotek.com/v1/Pages/Student/parent-homework`,
+    url: `https://${config.eyotek_url}/v1/Pages/Student/parent-homework`,
     
     scrape: async (page) => {
         return await page.evaluate(() => {

@@ -1,7 +1,7 @@
 const config = require('../config');
 module.exports = {
     id: 'ders-programi',
-    url: `https://${config.course}.eyotek.com/v1/Pages/Student/parent-timetable`,
+    url: `https://${config.eyotek_url}/v1/Pages/Student/parent-timetable`,
     
     scrape: async (page) => {
         return await page.evaluate(() => {

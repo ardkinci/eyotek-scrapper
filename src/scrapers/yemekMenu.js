@@ -1,7 +1,7 @@
 const config = require('../config');
 module.exports = {
     id: 'yemek',
-    url: `https://${config.course}.eyotek.com/v1/Pages/Student/parent-food-menu`,
+    url: `https://${config.eyotek_url}/v1/Pages/Student/parent-food-menu`,
     
     scrape: async (page) => {
         return await page.evaluate(() => {
