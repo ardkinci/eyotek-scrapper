@@ -3,4 +3,5 @@ module.exports = {
     PORT: process.env.PORT || 3001,
     PUPPETEER_EXECUTABLE_PATH: '/Applications/Chromium.app/Contents/MacOS/Chromium', // your browser path
     COOKIES_PATH: './cookies.json'
+    EYOTEK_DATE_FORMAT: 'DD.MM.YYYY' 
 };
