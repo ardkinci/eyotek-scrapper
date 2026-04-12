@@ -1,3 +1,4 @@
+const config = require('../config');
 module.exports = {
     id: 'yemek',
     url: `https://${config.eyotek_url}/v1/Pages/Student/parent-food-menu`,
