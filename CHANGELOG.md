@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.1.0...v1.2.0) (2026-04-12)
+
+
+### Features
+
+* **config:** ddd full eyotek URL support ([c3229f1](https://github.com/ardkinci/eyotek-scrapper/commit/c3229f1356f2a74dbf9f13bd96531ab4837718c3))
+* **core:** apply the first run wizard ([f9c9930](https://github.com/ardkinci/eyotek-scrapper/commit/f9c99307a9e230fa6812d726f30a897b6dc15e9d))
+
 ## 1.1.0 (2026-04-11)
 
 
