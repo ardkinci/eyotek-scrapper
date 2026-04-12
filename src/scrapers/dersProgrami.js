@@ -6,16 +6,16 @@ module.exports = {
     scrape: async (page) => {
         return await page.evaluate(() => {
             const rows = Array.from(document.querySelectorAll('#GridView1 tr'));
-            rows.shift();
+            rows.shift(); 
 
             const haftalikProgram = {
-                pazartesi: { gunAdi: 'Pazartesi', tarih: null, dersler: {} },
-                sali:      { gunAdi: 'Salı',      tarih: null, dersler: {} },
-                carsamba:  { gunAdi: 'Çarşamba',  tarih: null, dersler: {} },
-                persembe:  { gunAdi: 'Perşembe',  tarih: null, dersler: {} },
-                cuma:      { gunAdi: 'Cuma',      tarih: null, dersler: {} },
-                cumartesi: { gunAdi: 'Cumartesi', tarih: null, dersler: {} },
-                pazar:     { gunAdi: 'Pazar',     tarih: null, dersler: {} }
+                pazartesi: { gunAdi: 'Pazartesi', dersler: {} },
+                sali:      { gunAdi: 'Salı',      dersler: {} },
+                carsamba:  { gunAdi: 'Çarşamba',  dersler: {} },
+                persembe:  { gunAdi: 'Perşembe',  dersler: {} },
+                cuma:      { gunAdi: 'Cuma',      dersler: {} },
+                cumartesi: { gunAdi: 'Cumartesi', dersler: {} },
+                pazar:     { gunAdi: 'Pazar',     dersler: {} }
             };
 
             const parseCell = (cell) => {
@@ -23,11 +23,29 @@ module.exports = {
                 const text = cell.innerText.trim();
                 if (!text || text === '') return null;
                 
+                // seperate with \n
                 const lines = text.split('\n').map(l => l.trim()).filter(l => l !== '');
-                return {
-                    ders: lines[0] || '', 
-                    detaylar: lines.slice(1).join(' | ') 
+                
+                const sonuc = {
+                    ders: lines[0] || '',
+                    ogretmen: null,
+                    sinif: null,
+                    derslik: null
                 };
+
+                lines.slice(1).forEach(line => {
+                    if (line.includes('Öğretmen:')) {
+                        sonuc.ogretmen = line.replace('Öğretmen:', '').trim();
+                    } 
+                    else if (line.includes('Sınıf:')) {
+                        sonuc.sinif = line.replace('Sınıf:', '').trim();
+                    } 
+                    else if (line.includes('Derslik:')) {
+                        sonuc.derslik = line.replace('Derslik:', '').trim();
+                    }
+                });
+
+                return sonuc;
             };
 
             rows.forEach((row, index) => {
@@ -54,7 +72,9 @@ module.exports = {
                         haftalikProgram[gun.ad].dersler[ders_no] = {
                             saat: gun.saat,
                             ders: parsedData.ders,
-                            detaylar: parsedData.detaylar
+                            ogretmen: parsedData.ogretmen,
+                            sinif: parsedData.sinif,
+                            derslik: parsedData.derslik
                         };
                     }
                 });
