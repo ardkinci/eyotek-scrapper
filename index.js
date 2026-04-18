@@ -1,3 +1,4 @@
+require('./src/core/logger');
 const fs = require('fs');
 const { spawn } = require('child_process');
 const config = require('./src/config');
