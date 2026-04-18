@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.3.0...v1.4.0) (2026-04-18)
+
+
+### Features
+
+* **api:** implement .ics supported endpoint ([d74ce03](https://github.com/ardkinci/eyotek-scrapper/commit/d74ce0383c14a8857e37f2e1f8fec9997dfd8f26))
+
 ## [1.3.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.2.0...v1.3.0) (2026-04-18)
 
 
