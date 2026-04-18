@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.2.0...v1.3.0) (2026-04-18)
+
+
+### Features
+
+* add timestamps to logs ([f41f9ae](https://github.com/ardkinci/eyotek-scrapper/commit/f41f9aefebc0d4ee2339636742e4e82f88dba7a0))
+* **core:** normalization of terminal logs ([e96da86](https://github.com/ardkinci/eyotek-scrapper/commit/e96da86fb96dafb34c177c1f2a99ad800b3e48d4))
+* date formats configured to ISO standards ([83cf3b2](https://github.com/ardkinci/eyotek-scrapper/commit/83cf3b2228868ba7816e3d8344f30d917197f774))
+* **scraper:** add date support for food menu ([4387eaa](https://github.com/ardkinci/eyotek-scrapper/commit/4387eaa7e54523495406efc7f3cfd18986d5472e))
+* **scraper:** add more detailed output for timetable ([5105dff](https://github.com/ardkinci/eyotek-scrapper/commit/5105dff55f89473486fe70f2717b4971c0ae0aec))
+
+
+### Bug Fixes
+
+* **config:** add missing comma ([48f2b02](https://github.com/ardkinci/eyotek-scrapper/commit/48f2b02494a92d3c18d811c6a09331fe9497712c))
+* **scraper:** import config file in food menu scraper ([eb91349](https://github.com/ardkinci/eyotek-scrapper/commit/eb91349003453b880c5ffcec2c0b752496a702de))
+
 ## [1.2.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.1.0...v1.2.0) (2026-04-12)
 
 
