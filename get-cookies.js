@@ -20,11 +20,10 @@ const waitAndAsk = (question) => {
 async function autoGetCookies() {
     const port = 9222;
     const loginUrl = `https://${config.eyotek_url}/`;
-    const profilePath = path.join(os.tmpdir(), `eyotek_profile_${Date.now()}`);  // new profile
+    const profilePath = path.join(os.tmpdir(), `eyotek_profile_${Date.now()}`); // new profile
 
 
-    console.log(`🚀 Chromium starting with new profile...`);
-    console.log(`📁 Temp Profile: ${profilePath}`);
+    console.log(`[INFO] (cookie-extractor): Chromium starting with new temp profile (${profilePath})`);
 
     const browserProcess = spawn(config.PUPPETEER_EXECUTABLE_PATH, [
         `--remote-debugging-port=${port}`,
@@ -36,15 +35,13 @@ async function autoGetCookies() {
 
     await new Promise(r => setTimeout(r, 2000));
 
-    console.log('\n=============================================================');
-    console.log('✅ Browser ready!');
-    console.log('👉 Please enter your password in your browser and take the Turnstile test.');
-    console.log('👉 Once you are FULLY logged into the system, return here and press ENTER.');
-    console.log('=============================================================\n');
+    console.log(`[INFO] (cookie-extractor): Browser is ready!`);
+    console.log(`[INFO] (cookie-extractor): Please enter your password in your browser and take the Turnstile test.`);
+    console.log(`[INFO] (cookie-extractor): Once you are FULLY logged into the system, return here and press ENTER.`);
 
-    await waitAndAsk('If you are logged in to the system, press ENTER... ');
+    await waitAndAsk('[INFO] (cookie-extractor): If you are logged in to the system, press ENTER');
 
-    console.log(`Puppeteer is connecting to the browser on ${port}`);
+    console.log(`[INFO] (cookie-extractor): Puppeteer is connecting to the browser on port ${port}`);
     try {
         const browser = await puppeteer.connect({
             browserURL: `http://127.0.0.1:${port}`,
@@ -54,7 +51,7 @@ async function autoGetCookies() {
         const pages = await browser.pages();
         const page = pages[0]; 
 
-        console.log('🍪 Cookies are being extracted...');
+        console.log('[INFO] (cookie-extractor): Cookies are extracting...');
         
         // connect to CDP
         const client = await page.target().createCDPSession();
@@ -64,15 +61,16 @@ async function autoGetCookies() {
 
         // save
         await fs.writeFile(config.COOKIES_PATH, JSON.stringify(cookies, null, 2));
-        console.log(`✅ Success! A total of ${cookies.length} cookies have been saved to the file..`);
+        console.log(`[SUCCESS] (cookie-extractor): ${cookies.length} cookies are have been saved to the file.`);
 
         await browser.close();
-        console.log('Browser closed.');
+        console.log('[INFO] (cookie-extractor): Browser closed.');
 
         await fs.rm(profilePath, { recursive: true, force: true }).catch(() => {});
 
     } catch (error) {
-        console.error('❌ An error occurred while retrieving cookies.:', error.message);
+        console.error(`[ERROR] (cookie-extractor): ${error.message}`);
+
         browserProcess.kill(); 
         process.exit(1);
     }
