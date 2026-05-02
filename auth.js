@@ -52,7 +52,7 @@ async function executeAutoStrategy(page, loginUrl) {
 async function executeManualStrategy() {
     console.log(`[INFO] (auth): Please enter your password in your browser and take the Turnstile test. Click "Login" and wait until you see the dashboard.`);
     console.log(`[INFO] (auth): Once fully logged in, return here and press ENTER.`);
-    await waitAndAsk('[ACTION REQUIRED]: Press ENTER if you are logged in successfully...');
+    await promptUser('[ACTION REQUIRED]: Press ENTER if you are logged in successfully...');
 }
 
 async function performAuthentication(mode) {
