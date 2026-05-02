@@ -16,7 +16,7 @@ function setupFirstRun() {
     console.log('[INFO] (core): Cookie wizard is starting.');
 
     // sub process
-    const wizard = spawn('node', ['get-cookies.js'], { stdio: 'inherit' });
+    const wizard = spawn('node', ['auth.js'], { stdio: 'inherit' });
 
     wizard.on('exit', (code) => {
         if (code === 0) {

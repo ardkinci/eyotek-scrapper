@@ -1,7 +1,14 @@
 module.exports = {
-    eyotek_url: "xyz.eyotek.com",
     PORT: process.env.PORT || 3001,
-    PUPPETEER_EXECUTABLE_PATH: '/Applications/Chromium.app/Contents/MacOS/Chromium', // your browser path
+
+    LOGIN_MODE: 'auto', // auto or manual
+    USERNAME: '1234',
+    PASSWORD: 'P@ssw0rd!',
+
+    eyotek_url: "xyz.eyotek.com",
+
+    PUPPETEER_EXECUTABLE_PATH: '/Applications/Chromium.app/Contents/MacOS/Chromium',
     COOKIES_PATH: './cookies.json',
+
     EYOTEK_DATE_FORMAT: 'DD.MM.YYYY' 
 };
