@@ -2,9 +2,12 @@ const express = require('express');
 const { runScraper } = require('./core/scraperEngine');
 const scrapers = require('./scrapers');
 const { generateIcsFromTimetable } = require('./utils/icsGenerator'); 
+const apiKeyMiddleware = require('./middleware/apiAuth');
 
 const app = express();
 app.use(express.json());
+
+app.use(apiKeyMiddleware); // API KEY CONTROL
 
 app.get('/api/scrape/:taskId/ics', async (req, res) => {
     const { taskId } = req.params;
