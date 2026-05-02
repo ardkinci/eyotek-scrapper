@@ -1,7 +1,14 @@
+<div align="center">
+
 # Eyotek Scraper API
+**An unofficial Node.js API to scrape and extract data from the Eyotek School Management System.**
 
-An unofficial Node.js API to scrape and extract data from the Eyotek School Management System. 
+[![Latest Version](https://img.shields.io/github/v/release/ardkinci/eyotek-scrapper?display_name=tag&sort=semver&color=blue&label=version)](https://github.com/ardkinci/eyotek-scrapper/releases)
+[![Release Downloads](https://img.shields.io/github/downloads/ardkinci/eyotek-scrapper/total?color=success&label=downloads)](https://github.com/ardkinci/eyotek-scrapper/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/ardkinci/eyotek-scrapper?color=orange&label=last%20commit)](https://github.com/ardkinci/eyotek-scrapper/commits/main)
 
+</div>
+<br>
 Since Eyotek does not provide a public API, this project uses DOM scraping techniques via Puppeteer to fetch data (Schedules, Homework, Lunch Menus) from the system and serve it as structured JSON responses. It also supports exporting schedules directly to `.ics` format for calendar integration!
 
 > [!CAUTION]
@@ -13,6 +20,9 @@ Since Eyotek does not provide a public API, this project uses DOM scraping techn
 - **RESTful API:** Serves the scraped data through dedicated endpoints.
 - **Calendar Integration:** Export your weekly schedule directly as an `.ics` file.
 - **Smart Authentication:** Supports both `auto` and `manual` login modes to bypass Cloudflare Turnstile protections.
+- **API Key Protection**: Secure your API endpoints with a simple and effective API key authentication.
+- **Lightweight & Fast**: Optimized for running on low-resource devices.
+
 
 ## 📦 Installation & Setup
 
