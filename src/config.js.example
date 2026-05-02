@@ -1,6 +1,9 @@
 module.exports = {
     PORT: process.env.PORT || 3001,
 
+    USE_API_KEY: true,
+    API_KEY: 'FkZNpN08O0s0OEWZALNrRsXtIHsi2WKFEoHpANX3uVf', // example api key
+
     LOGIN_MODE: 'auto', // auto or manual
     USERNAME: '1234',
     PASSWORD: 'P@ssw0rd!',
