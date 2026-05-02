@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.5.0...v1.6.0) (2026-05-02)
+
+
+### Features
+
+* **api:** add an API key auth system ([f454544](https://github.com/ardkinci/eyotek-scrapper/commit/f4545441db820f73c8ded0e57f9a9b5fb2ddb7ad))
+* **api:** add the auth system to authenticate requests with an API key ([#5](https://github.com/ardkinci/eyotek-scrapper/issues/5)) ([27006a7](https://github.com/ardkinci/eyotek-scrapper/commit/27006a70c2b89b0cdf0ccf8a0f0e40fcac3b8204))
+
+
+### Bug Fixes
+
+* **auth:** correct the incorrect function name ([2775cff](https://github.com/ardkinci/eyotek-scrapper/commit/2775cff374a270e4b52a33a8017f418acf22d314))
+* **auth:** fix the bug that caused turnstile to fail ([dfa74a9](https://github.com/ardkinci/eyotek-scrapper/commit/dfa74a954277d89a9c4517d08011d63f98f53d89))
+* **auth:** fix the bug that caused turnstile to fail ([#6](https://github.com/ardkinci/eyotek-scrapper/issues/6)) ([d90386a](https://github.com/ardkinci/eyotek-scrapper/commit/d90386a38167e9f355c51ac2b2c7c7d509aef643))
+* **auth:** fix the crash in manual login [#4](https://github.com/ardkinci/eyotek-scrapper/issues/4) ([cdfc33b](https://github.com/ardkinci/eyotek-scrapper/commit/cdfc33bc63fb7cf0ecc7cdac4fc7de1c4c907d33))
+
 ## [1.5.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.4.0...v1.5.0) (2026-05-02)
 
 
