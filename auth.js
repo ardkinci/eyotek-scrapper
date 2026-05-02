@@ -17,6 +17,20 @@ const promptUser = (query) => {
     }));
 };
 
+async function connectToBrowser(port) { // port'u dışarıdan alıyoruz
+    console.log(`[INFO] (auth): Puppeteer is connecting to the browser on port ${port}`);
+    const browser = await puppeteer.connect({
+        browserURL: `http://127.0.0.1:${port}`,
+        defaultViewport: null
+    });
+
+    const pages = await browser.pages();
+    const page = pages[0]; 
+    page.setDefaultNavigationTimeout(90000);
+    
+    return { browser, page }; // Objeleri geri gönderiyoruz
+}
+
 async function executeAutoStrategy(page, loginUrl) {
 
     console.log('[INFO] (auth): Waiting for page to be ready...');
@@ -77,21 +91,20 @@ async function performAuthentication(mode) {
     await delay(bootDelay);
 
     let browser;
+    let page;
+
     try {
-        console.log(`[INFO] (auth): Puppeteer is connecting to the browser on port ${port}`);
-        browser = await puppeteer.connect({
-            browserURL: `http://127.0.0.1:${port}`,
-            defaultViewport: null
-        });
-
-        const pages = await browser.pages();
-        const page = pages[0]; 
-        page.setDefaultNavigationTimeout(90000);
-
         if (isAuto) {
+            const connection = await connectToBrowser(port);
+            browser = connection.browser;
+            page = connection.page;
             await executeAutoStrategy(page, loginUrl);
+            
         } else {
             await executeManualStrategy();
+            const connection = await connectToBrowser(port);
+            browser = connection.browser;
+            page = connection.page;
         }
 
         console.log('[INFO] (auth): Login successful! Extracting cookies...');
