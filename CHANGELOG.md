@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.4.0...v1.5.0) (2026-05-02)
+
+
+### Features
+
+* **auth:** add auto-login system ([4994ede](https://github.com/ardkinci/eyotek-scrapper/commit/4994edead56951e86c459278c4419aca65ebb4c0))
+* **auth:** implementing the auto-login system ([#1](https://github.com/ardkinci/eyotek-scrapper/issues/1)) ([80ec0b8](https://github.com/ardkinci/eyotek-scrapper/commit/80ec0b86a8486a619a0ed134303e2f1d2dd93a96))
+
+
+### Bug Fixes
+
+* **auth:** fix the error that causes turnstile to fail ([3773be9](https://github.com/ardkinci/eyotek-scrapper/commit/3773be94c21c1e76b4cdd6ce9ea6bbb89c4078ca))
+
 ## [1.4.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.3.0...v1.4.0) (2026-04-18)
 
 
