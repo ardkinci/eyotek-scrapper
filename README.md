@@ -39,10 +39,12 @@ Open your newly created `config.js` file and fill in your details. Here is what 
 | Configuration Key | Description | Example / Allowed Values |
 | :--- | :--- | :--- |
 | `PORT` | The port your API will run on. | `3001` |
+| `USE_API_KEY` | Choose whether or not the API Auth system will be active. | `true` or `false` |
+| `API_KEY` | If you have enabled API Auth, enter the API Key here, which should be in the `x-api-key` header. The more complex it is, the more secure it will be. | `FkZNpN08O0s0OEWZALNrRsXtIHsi2WKFEoHpANX3uVf` *(example)* |
 | `LOGIN_MODE` | Determines how the scraper logs in. Use `manual` if you get stuck at Cloudflare Turnstile. | `auto` or `manual` |
-| `USERNAME` | Your Eyotek username/student ID. | `1234` |
-| `PASSWORD` | Your Eyotek password. | `P@ssw0rd!` |
-| `eyotek_url` | The specific subdomain for your school's Eyotek portal. | `xyz.eyotek.com` |
+| `USERNAME` | Your Eyotek username/student ID. | `1234` *(example)* |
+| `PASSWORD` | Your Eyotek password. | `P@ssw0rd!` *(example)* |
+| `eyotek_url` | The specific subdomain for your school's Eyotek portal. | `xyz.eyotek.com` *(example)* |
 | `PUPPETEER_EXECUTABLE_PATH` | Path to your Chrome/Chromium executable. | `/usr/bin/chromium` |
 | `COOKIES_PATH` | Where the session cookies will be saved. | `./cookies.json` |
 | `EYOTEK_DATE_FORMAT` | The date format used by your school's Eyotek system. | `DD.MM.YYYY` |
