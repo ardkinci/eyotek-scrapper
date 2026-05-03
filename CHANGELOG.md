@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.6.0...v1.7.0) (2026-05-03)
+
+
+### Features
+
+* **api:** add metadata block to API outputs ([#7](https://github.com/ardkinci/eyotek-scrapper/issues/7)) ([ea80b20](https://github.com/ardkinci/eyotek-scrapper/commit/ea80b2045e1bcdceab88f9488328e44c0e87da7d))
+* **core:** add metadata to outputs ([e1f678a](https://github.com/ardkinci/eyotek-scrapper/commit/e1f678a57b4fce96a69a341d28d82b253efd3983))
+* **utils:** add success and error response generators ([1551081](https://github.com/ardkinci/eyotek-scrapper/commit/15510810c14253a8ef549edd9d13f7160067a487))
+
 ## [1.6.0](https://github.com/ardkinci/eyotek-scrapper/compare/v1.5.0...v1.6.0) (2026-05-02)
 
 
