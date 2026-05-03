@@ -60,9 +60,9 @@ module.exports = {
             if (!tarihMetni) return '';
             
             const parseEdilmis = dayjs(tarihMetni, config.EYOTEK_DATE_FORMAT);
+            const apiFormat = config.API_DATE_FORMAT || 'YYYY-MM-DD';
             
-            // convert to YYYY-MM-DD
-            return parseEdilmis.isValid() ? parseEdilmis.format('YYYY-MM-DD') : tarihMetni;
+            return parseEdilmis.isValid() ? parseEdilmis.format(apiFormat) : tarihMetni;
         };
 
         hamVeri.liste = hamVeri.liste.map(odev => {

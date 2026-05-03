@@ -16,7 +16,7 @@ function successResponse(data, startTime = Date.now()) {
             api_version: packageJson.version,
             timestamp: new Date().toISOString(),
             source_url: config.eyotek_url,
-            date_format: config.EYOTEK_DATE_FORMAT || "DD.MM.YYYY",
+            date_format: config.API_DATE_FORMAT || "YYYY-MM-DD",
             execution_time_ms: executionTime
         },
         data: data

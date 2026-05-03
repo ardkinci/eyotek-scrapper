@@ -1,6 +1,9 @@
-
 const dayjs = require('dayjs');
+const customParseFormat = require('dayjs/plugin/customParseFormat');
+dayjs.extend(customParseFormat);
+
 const config = require('../config');
+
 module.exports = {
     id: 'yemek',
     url: `https://${config.eyotek_url}/v1/Pages/Student/parent-food-menu`,
@@ -8,14 +11,18 @@ module.exports = {
     scrape: async (page, params) => {
 
         if (params && params.date) {
+            const apiFormat = config.API_DATE_FORMAT || 'YYYY-MM-DD';
+            
+            const girilenTarih = dayjs(params.date, apiFormat);
+            
+            // convert to eyotek date format
+            const hedefTarih = girilenTarih.format(config.EYOTEK_DATE_FORMAT);
 
-            const hedefTarih = dayjs(params.date).format(config.EYOTEK_DATE_FORMAT);
-
-            if (hedefTarih === 'Invalid Date') {
-                throw new Error("Invalid date format. Example: 2026-04-10");
+            if (!girilenTarih.isValid() || hedefTarih === 'Invalid Date') {
+                throw new Error(`Invalid date format. Expected format: ${apiFormat}`);
             }
             
-            console.log(`📅 Date: ${params.date}`);
+            console.log(`[INFO] (scraper.yemekMenu): Requested Date: ${params.date} -> Eyotek Date: ${hedefTarih}`);
 
             await page.waitForSelector('#txtHistory');
 
@@ -30,7 +37,7 @@ module.exports = {
                 input.dispatchEvent(new Event('change', { bubbles: true }));
             }, hedefTarih);
 
-            console.log('⏳ Waiting for table update...');
+            console.log(`[INFO] (scraper.yemekMenu): Waiting for menu table update`);
 
             try {
                 await page.waitForFunction((eskiHTML) => {
@@ -39,9 +46,9 @@ module.exports = {
                     return guncelHTML !== eskiHTML;
                 }, { timeout: 10000 }, eskiTabloHTML);
 
-                console.log('✅ Table updated!');
+                console.log(`[INFO] (scraper.yemekMenu): Table updated`);
             } catch (error) {
-                console.log('⚠️ The table was not updated (the same data was received or a timeout occurred).');
+                console.log(`[ERROR] (scraper.yemekMenu): The table was not updated (the same data was received or a timeout occurred)`);
             }
 
             await new Promise(r => setTimeout(r, 500));
