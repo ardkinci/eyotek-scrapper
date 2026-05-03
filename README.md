@@ -57,7 +57,8 @@ Open your newly created `config.js` file and fill in your details. Here is what 
 | `eyotek_url` | The specific subdomain for your school's Eyotek portal. | `xyz.eyotek.com` *(example)* |
 | `PUPPETEER_EXECUTABLE_PATH` | Path to your Chrome/Chromium executable. | `/usr/bin/chromium` |
 | `COOKIES_PATH` | Where the session cookies will be saved. | `./cookies.json` |
-| `EYOTEK_DATE_FORMAT` | The date format used by your school's Eyotek system. | `DD.MM.YYYY` |
+| `EYOTEK_DATE_FORMAT` | The date format used by your school's Eyotek system. | `M/D/YYYY` |
+| `API_DATE_FORMAT` | The global date format to be used for API input/output. | `YYYY-MM-DD` |
 
 ## 🔑 First Run & Authentication
 
@@ -83,6 +84,13 @@ Fetches the weekly class schedule.
   ```json
   {
     "success": true,
+    "meta": {
+      "api_version": "1.6.0",
+      "timestamp": "2026-05-03T15:34:46.209Z",
+      "source_url": "xyz.eyotek.com",
+      "date_format": "YYYY-MM-DD",
+      "execution_time_ms": 6309
+    },
     "data": {
       "pazartesi": {
         "gunAdi": "Pazartesi",
@@ -112,6 +120,13 @@ Fetches homework statistics and the full list of assignments.
   ```json
   {
     "success": true,
+    "meta": {
+      "api_version": "1.6.0",
+      "timestamp": "2026-05-03T15:34:46.209Z",
+      "source_url": "xyz.eyotek.com",
+      "date_format": "YYYY-MM-DD",
+      "execution_time_ms": 6295
+    },
     "data": {
       "istatistik":[
         { "Status": "Not Attended", "Count": 2 },
@@ -143,6 +158,13 @@ Fetches the lunch menu. By default, it fetches today's menu, but you can specify
   ```json
   {
     "success": true,
+    "meta": {
+      "api_version": "1.6.0",
+      "timestamp": "2026-05-03T15:34:46.209Z",
+      "source_url": "xyz.eyotek.com",
+      "date_format": "YYYY-MM-DD",
+      "execution_time_ms": 8543
+    },
     "data":[
       {
         "yemek": "Soup",
