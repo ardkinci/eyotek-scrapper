@@ -13,5 +13,6 @@ module.exports = {
     PUPPETEER_EXECUTABLE_PATH: '/Applications/Chromium.app/Contents/MacOS/Chromium',
     COOKIES_PATH: './cookies.json',
 
-    EYOTEK_DATE_FORMAT: 'DD.MM.YYYY' 
+    EYOTEK_DATE_FORMAT: 'DD.MM.YYYY',
+    API_DATE_FORMAT: 'YYYY-MM-DD'
 };
